@@ -22,9 +22,21 @@ namespace OurChat
             DataContext = _vm;
         }
 
-        private void Send_Click(object sender, RoutedEventArgs e)
+        // ADD THIS METHOD
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _vm.Send();
+            MainFrame.Navigate(new Pages.DashboardPage());
+        }
+
+        // Your existing methods (keep them all)...
+        private void Send_Click(object sender, RoutedEventArgs e) => _vm.Send();
+        private void NavigateToDashboard(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.DashboardPage());
+        private void NavigateToServers(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ServersPage());
+        private void NavigateToControls(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ControlsPage());
+        private void NavigateToLogs(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.LogsPage());
+        private void NavigateToSettings(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Settings page coming soon!");
         }
     }
 }
