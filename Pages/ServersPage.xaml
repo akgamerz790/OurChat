@@ -1,0 +1,153 @@
+<Page x:Class="OurChat.Pages.ServersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+
+    <Page.Resources>
+        <!-- Colors -->
+        <SolidColorBrush x:Key="PrimaryBg" Color="#2C2F33"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#5865F2"/>
+        <SolidColorBrush x:Key="AccentGreen" Color="#43B581"/>
+        <SolidColorBrush x:Key="Black" Color="#000000"/>
+        <SolidColorBrush x:Key="White" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextGray" Color="#99AAB5"/>
+
+        <!-- BOOTSTRAP STYLES -->
+        <Style x:Key="SectionHeader" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBlue}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,4"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+
+        <Style x:Key="ServerItem" TargetType="ListBoxItem">
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter Margin="15"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentBlue}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MemberBadge" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource AccentGreen}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ServerTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="ServerSubtitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground" Value="{StaticResource TextGray}"/>
+            <Setter Property="Margin" Value="0,4,0,0"/>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            
+            <!-- HEADER -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ SERVERS" 
+                           FontFamily="Courier New"
+                           FontWeight="Bold"
+                           FontSize="24"
+                           Foreground="{StaticResource White}"/>
+            </Border>
+
+            <!-- SERVERS LIST -->
+            <ListBox Background="Transparent" 
+                     BorderThickness="0"
+                     ItemContainerStyle="{StaticResource ServerItem}">
+                
+                <ListBoxItem>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Gaming Community" Style="{StaticResource ServerTitle}"/>
+                            <TextBlock Text="Last active: 2 minutes ago" Style="{StaticResource ServerSubtitle}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource MemberBadge}">
+                            <TextBlock Text="2,341 MEMBERS" 
+                                       FontFamily="Courier New"
+                                       FontWeight="Bold"
+                                       FontSize="11"
+                                       Foreground="{StaticResource Black}"/>
+                        </Border>
+                    </Grid>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Dev Squad" Style="{StaticResource ServerTitle}"/>
+                            <TextBlock Text="Last active: 15 minutes ago" Style="{StaticResource ServerSubtitle}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource MemberBadge}">
+                            <TextBlock Text="856 MEMBERS" 
+                                       FontFamily="Courier New"
+                                       FontWeight="Bold"
+                                       FontSize="11"
+                                       Foreground="{StaticResource Black}"/>
+                        </Border>
+                    </Grid>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Chill Zone" Style="{StaticResource ServerTitle}"/>
+                            <TextBlock Text="Last active: 1 hour ago" Style="{StaticResource ServerSubtitle}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource MemberBadge}">
+                            <TextBlock Text="1,923 MEMBERS" 
+                                       FontFamily="Courier New"
+                                       FontWeight="Bold"
+                                       FontSize="11"
+                                       Foreground="{StaticResource Black}"/>
+                        </Border>
+                    </Grid>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Meme Factory" Style="{StaticResource ServerTitle}"/>
+                            <TextBlock Text="Last active: 5 minutes ago" Style="{StaticResource ServerSubtitle}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource MemberBadge}">
+                            <TextBlock Text="3,312 MEMBERS" 
+                                       FontFamily="Courier New"
+                                       FontWeight="Bold"
+                                       FontSize="11"
+                                       Foreground="{StaticResource Black}"/>
+                        </Border>
+                    </Grid>
+                </ListBoxItem>
+            </ListBox>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

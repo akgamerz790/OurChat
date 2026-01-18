@@ -8,16 +8,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows;
 
-namespace OurChat;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace OurChat
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        private readonly MainViewModel _vm = new MainViewModel();
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = _vm;
+        }
+
+        private void Send_Click(object sender, RoutedEventArgs e)
+        {
+            _vm.Send();
+        }
     }
 }

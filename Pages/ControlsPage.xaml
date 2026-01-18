@@ -1,0 +1,109 @@
+<Page x:Class="OurChat.Pages.ControlsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+
+    <Page.Resources>
+        <!-- Colors -->
+        <SolidColorBrush x:Key="PrimaryBg" Color="#2C2F33"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#5865F2"/>
+        <SolidColorBrush x:Key="AccentGreen" Color="#43B581"/>
+        <SolidColorBrush x:Key="AccentRed" Color="#F04747"/>
+        <SolidColorBrush x:Key="Black" Color="#000000"/>
+        <SolidColorBrush x:Key="White" Color="#FFFFFF"/>
+
+        <!-- BOOTSTRAP STYLES -->
+        <Style x:Key="SectionHeader" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBlue}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,4"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+
+        <Style x:Key="BrutalistTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Padding" Value="12"/>
+        </Style>
+
+        <Style x:Key="MultilineTextBox" TargetType="TextBox" BasedOn="{StaticResource BrutalistTextBox}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
+
+        <Style x:Key="LabelText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
+
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            
+            <!-- HEADER -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ CONTROLS" 
+                           FontFamily="Courier New"
+                           FontWeight="Bold"
+                           FontSize="24"
+                           Foreground="{StaticResource White}"/>
+            </Border>
+
+            <StackPanel>
+                <!-- CHANNEL ID -->
+                <TextBlock Text="CHANNEL ID" Style="{StaticResource LabelText}"/>
+                <TextBox x:Name="txtChannelId"
+                         Style="{StaticResource BrutalistTextBox}" 
+                         Text="987654321098765432"
+                         Margin="0,0,0,20"/>
+
+                <!-- MESSAGE -->
+                <TextBlock Text="MESSAGE" Style="{StaticResource LabelText}"/>
+                <TextBox x:Name="txtMessage"
+                         Style="{StaticResource MultilineTextBox}"
+                         Text="Hello from the admin panel!"/>
+
+                <!-- ACTIONS -->
+                <TextBlock Text="ACTIONS" Style="{StaticResource LabelText}"/>
+                
+                <WrapPanel>
+                    <Button Content="SEND MESSAGE" 
+                            Style="{StaticResource ActionButton}"
+                            Background="{StaticResource AccentBlue}"
+                            Foreground="{StaticResource Black}"
+                            Click="SendMessage"/>
+                    <Button Content="CLEAR MESSAGE" 
+                            Style="{StaticResource ActionButton}"
+                            Background="{StaticResource AccentRed}"
+                            Foreground="{StaticResource Black}"
+                            Click="ClearMessage"/>
+                    <Button Content="BROADCAST ALL" 
+                            Style="{StaticResource ActionButton}"
+                            Background="{StaticResource AccentGreen}"
+                            Foreground="{StaticResource Black}"
+                            Click="BroadcastAll"/>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
