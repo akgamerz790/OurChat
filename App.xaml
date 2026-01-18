@@ -8,14 +8,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/Colors.xaml"/>
-                <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
-                <ResourceDictionary Source="Styles/TextBoxStyles.xaml"/>
-                <ResourceDictionary Source="Styles/ComboBoxStyles.xaml"/>
-                <ResourceDictionary Source="Styles/CheckBoxStyles.xaml"/>
-                <ResourceDictionary Source="Styles/ListStyles.xaml"/>
-                <ResourceDictionary Source="Styles/PanelStyles.xaml"/>
-                <ResourceDictionary Source="Styles/TextStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/ComboBoxStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/CheckBoxStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/ListStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/PanelStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/TextStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
