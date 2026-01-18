@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="UserInterfaceDB/Styles/ListStyles.xaml"/>
                 <ResourceDictionary Source="UserInterfaceDB/Styles/PanelStyles.xaml"/>
                 <ResourceDictionary Source="UserInterfaceDB/Styles/TextStyles.xaml"/>
+                <ResourceDictionary Source="UserInterfaceDB/Styles/ScrollStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

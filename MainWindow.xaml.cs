@@ -8,27 +8,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows;
 
 namespace OurChat
 {
     public partial class MainWindow : Window
     {
         private readonly MainViewModel _vm = new MainViewModel();
-
         public MainWindow()
         {
             InitializeComponent();
             DataContext = _vm;
         }
-
-        // ADD THIS METHOD
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Pages.DashboardPage());
         }
-
-        // Your existing methods (keep them all)...
         private void Send_Click(object sender, RoutedEventArgs e) => _vm.Send();
         private void NavigateToDashboard(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.DashboardPage());
         private void NavigateToServers(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ServersPage());
@@ -36,7 +30,7 @@ namespace OurChat
         private void NavigateToLogs(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.LogsPage());
         private void NavigateToSettings(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Settings page coming soon!");
+            MainFrame.Navigate(new Pages.SettingsPage());
         }
     }
 }

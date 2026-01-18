@@ -8,15 +8,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-public partial class LogsPage : Page
-{
-    public LogsPage()
-    {
-        InitializeComponent();
-    }
 
-    private void ClearLogs(object sender, RoutedEventArgs e)
+namespace OurChat.Pages
+{
+    public partial class LogsPage : Page
     {
-        LogContainer.Children.Clear(); // Clears all log entries
+        public LogsPage()
+        {
+            InitializeComponent();
+        }
+
+        private void ClearLogs(object sender, RoutedEventArgs e)
+        {
+            LogContainer.Children.Clear();
+        }
     }
 }

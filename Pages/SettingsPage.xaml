@@ -1,0 +1,265 @@
+<Page x:Class="OurChat.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="PrimaryBg" Color="#2C2F33"/>
+        <SolidColorBrush x:Key="SecondaryBg" Color="#36393F"/>
+        <SolidColorBrush x:Key="DarkBg" Color="#23272A"/>
+        <SolidColorBrush x:Key="TextGray" Color="#8E9297"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#5865F2"/>
+        <SolidColorBrush x:Key="AccentGreen" Color="#43B581"/>
+        <SolidColorBrush x:Key="AccentRed" Color="#F04747"/>
+        <SolidColorBrush x:Key="Black" Color="#000000"/>
+        <SolidColorBrush x:Key="White" Color="#FFFFFF"/>
+
+        <Style x:Key="DiscordThumb" TargetType="Thumb">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                BorderBrush="{StaticResource TextGray}"
+                                BorderThickness="1"
+                                Opacity="0.7">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" Opacity="0.5" ShadowDepth="1"/>
+                            </Border.Effect>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource AccentBlue}"/>
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsDragging" Value="True">
+                                <Setter Property="Background" Value="#7289DA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DiscordScrollBar" TargetType="ScrollBar">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="Transparent">
+                            <Border Background="{StaticResource TextGray}"
+                                    CornerRadius="6"
+                                    Opacity="0.2"/>
+                            <Thumb x:Name="PART_Thumb"
+                                   Margin="2,4,2,4"
+                                   Style="{StaticResource DiscordThumb}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DiscordScrollViewer" TargetType="ScrollViewer">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="14"/>
+                            </Grid.ColumnDefinitions>
+                            <ScrollContentPresenter Grid.Column="0" 
+                                                  Content="{TemplateBinding Content}"
+                                                  Margin="{TemplateBinding Padding}"/>
+                            <ScrollBar x:Name="PART_VerticalScrollBar"
+                                       Grid.Column="1"
+                                       Value="{TemplateBinding VerticalOffset}"
+                                       Maximum="{TemplateBinding ScrollableHeight}"
+                                       ViewportSize="{TemplateBinding ViewportHeight}"
+                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                       Style="{StaticResource DiscordScrollBar}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SectionHeader" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBlue}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,4"/>
+            <Setter Property="Padding" Value="0,0,0,10"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style x:Key="CardPanel" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource SecondaryBg}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style x:Key="DarkCardPanel" TargetType="Border" BasedOn="{StaticResource CardPanel}">
+            <Setter Property="Background" Value="{StaticResource DarkBg}"/>
+        </Style>
+
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+        <Style x:Key="LabelText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="Margin" Value="0,10,0,6"/>
+        </Style>
+
+        <Style x:Key="StandardTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style x:Key="StandardPasswordBox" TargetType="PasswordBox">
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style x:Key="StandardComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style x:Key="StandardCheckBox" TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+
+        <Style x:Key="SuccessButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentGreen}"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="20,12"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource SuccessButton}">
+            <Setter Property="Background" Value="{StaticResource AccentRed}"/>
+        </Style>
+
+        <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource SuccessButton}">
+            <Setter Property="Background" Value="{StaticResource DarkBg}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer x:Name="MainScrollViewer" 
+                  Style="{StaticResource DiscordScrollViewer}" 
+                  VerticalScrollBarVisibility="Auto"
+                  PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+        
+        <StackPanel Margin="20">
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ SETTINGS" FontSize="24" FontWeight="Bold" FontFamily="Courier New" Foreground="{StaticResource White}"/>
+            </Border>
+
+            <Border Style="{StaticResource CardPanel}">
+                <StackPanel>
+                    <TextBlock Text="BOT CONFIGURATION" Style="{StaticResource SectionTitle}"/>
+                    <TextBlock Text="BOT TOKEN" Style="{StaticResource LabelText}"/>
+                    <PasswordBox x:Name="txtBotToken" Style="{StaticResource StandardPasswordBox}"/>
+                    <TextBlock Text="BOT PREFIX" Style="{StaticResource LabelText}"/>
+                    <TextBox x:Name="txtBotPrefix" Style="{StaticResource StandardTextBox}" Text="!"/>
+                    <TextBlock Text="STATUS MESSAGE" Style="{StaticResource LabelText}"/>
+                    <TextBox x:Name="txtStatusMessage" Style="{StaticResource StandardTextBox}" Text="Watching over servers"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardPanel}">
+                <StackPanel>
+                    <TextBlock Text="FEATURES" Style="{StaticResource SectionTitle}"/>
+                    <CheckBox x:Name="chkAutoReply" Content="Enable Auto-Reply" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                    <CheckBox x:Name="chkLogging" Content="Enable Logging" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                    <CheckBox x:Name="chkWelcomeMessages" Content="Enable Welcome Messages" Style="{StaticResource StandardCheckBox}"/>
+                    <CheckBox x:Name="chkModeration" Content="Enable Moderation" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                    <CheckBox x:Name="chkCustomCommands" Content="Enable Custom Commands" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardPanel}">
+                <StackPanel>
+                    <TextBlock Text="NOTIFICATIONS" Style="{StaticResource SectionTitle}"/>
+                    <CheckBox x:Name="chkNotifyJoin" Content="Notify on new member join" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                    <CheckBox x:Name="chkNotifyErrors" Content="Notify on errors" Style="{StaticResource StandardCheckBox}" IsChecked="True"/>
+                    <CheckBox x:Name="chkNotifyRateLimit" Content="Notify on rate limits" Style="{StaticResource StandardCheckBox}"/>
+                    <CheckBox x:Name="chkDailySummary" Content="Daily activity summary" Style="{StaticResource StandardCheckBox}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardPanel}">
+                <StackPanel>
+                    <TextBlock Text="APPEARANCE" Style="{StaticResource SectionTitle}"/>
+                    <TextBlock Text="THEME" Style="{StaticResource LabelText}"/>
+                    <ComboBox x:Name="cmbTheme" Style="{StaticResource StandardComboBox}" SelectedIndex="0">
+                        <ComboBoxItem>Dark (Default)</ComboBoxItem>
+                        <ComboBoxItem>Light</ComboBoxItem>
+                        <ComboBoxItem>AMOLED Black</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock Text="ACCENT COLOR" Style="{StaticResource LabelText}"/>
+                    <ComboBox x:Name="cmbAccent" Style="{StaticResource StandardComboBox}" SelectedIndex="0">
+                        <ComboBoxItem>Discord Blue</ComboBoxItem>
+                        <ComboBoxItem>Green</ComboBoxItem>
+                        <ComboBoxItem>Red</ComboBoxItem>
+                        <ComboBoxItem>Purple</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource DarkCardPanel}">
+                <StackPanel>
+                    <TextBlock Text="ADVANCED" Style="{StaticResource SectionTitle}"/>
+                    <TextBlock Text="MAX MESSAGES PER MINUTE" Style="{StaticResource LabelText}"/>
+                    <TextBox x:Name="txtMaxMessages" Style="{StaticResource StandardTextBox}" Text="60"/>
+                    <TextBlock Text="COMMAND TIMEOUT (seconds)" Style="{StaticResource LabelText}"/>
+                    <TextBox x:Name="txtCommandTimeout" Style="{StaticResource StandardTextBox}" Text="30"/>
+                    <CheckBox x:Name="chkDevMode" Content="Enable Developer Mode" Style="{StaticResource StandardCheckBox}"/>
+                    <CheckBox x:Name="chkVerboseLogging" Content="Verbose Logging" Style="{StaticResource StandardCheckBox}"/>
+                </StackPanel>
+            </Border>
+
+            <WrapPanel Margin="0,10,0,0" HorizontalAlignment="Right">
+                <Button Content="SAVE ALL SETTINGS" Style="{StaticResource SuccessButton}" Click="SaveAllSettings"/>
+                <Button Content="RESET TO DEFAULTS" Style="{StaticResource DangerButton}" Click="ResetToDefaults"/>
+                <Button Content="EXPORT CONFIG" Style="{StaticResource SecondaryButton}" Click="ExportConfig"/>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
