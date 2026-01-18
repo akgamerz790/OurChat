@@ -1,0 +1,304 @@
+<Window x:Class="OurChat.StyleDemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Style Demo - OurChat"
+        Height="800"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#36393F">
+
+    <Window.Resources>
+        <!-- COLORS -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#5865F2"/>
+        <SolidColorBrush x:Key="SuccessColor" Color="#57F287"/>
+        <SolidColorBrush x:Key="DangerColor" Color="#ED4245"/>
+        <SolidColorBrush x:Key="WarningColor" Color="#FEE75C"/>
+        <SolidColorBrush x:Key="DarkBG" Color="#2F3136"/>
+        <SolidColorBrush x:Key="DarkerBG" Color="#202225"/>
+        <SolidColorBrush x:Key="TextBright" Color="#DCDDDE"/>
+        <SolidColorBrush x:Key="TextDim" Color="#72767D"/>
+
+        <!-- BUTTON STYLES -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SuccessButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Background" Value="{StaticResource SuccessColor}"/>
+        </Style>
+
+        <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Background" Value="{StaticResource DangerColor}"/>
+        </Style>
+
+        <Style x:Key="WarningButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Background" Value="{StaticResource WarningColor}"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+
+        <Style x:Key="LargeButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Padding" Value="24,16"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <!-- TEXTBOX STYLES -->
+        <Style x:Key="StandardTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource DarkBG}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextDim}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="MultilineTextBox" TargetType="TextBox" BasedOn="{StaticResource StandardTextBox}">
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
+
+        <Style x:Key="SearchTextBox" TargetType="TextBox" BasedOn="{StaticResource StandardTextBox}">
+            <Setter Property="Padding" Value="40,10,12,10"/>
+        </Style>
+
+        <Style x:Key="StandardPasswordBox" TargetType="PasswordBox">
+            <Setter Property="Background" Value="{StaticResource DarkBG}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextDim}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,10"/>
+        </Style>
+
+        <!-- COMBOBOX -->
+        <Style x:Key="StandardComboBox" TargetType="ComboBox" BasedOn="{StaticResource StandardTextBox}">
+            <Setter Property="Padding" Value="12,8"/>
+        </Style>
+
+        <!-- CHECKBOX & RADIO -->
+        <Style x:Key="StandardCheckBox" TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="StandardRadioButton" TargetType="RadioButton">
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <!-- LIST ITEMS -->
+        <Style x:Key="ServerListItem" TargetType="ListBoxItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- PANEL STYLES -->
+        <Style x:Key="CardPanel" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+
+        <Style x:Key="DarkCardPanel" TargetType="Border" BasedOn="{StaticResource CardPanel}">
+            <Setter Property="Background" Value="{StaticResource DarkBG}"/>
+        </Style>
+
+        <Style x:Key="StatusCard" TargetType="Border" BasedOn="{StaticResource DarkCardPanel}">
+            <Setter Property="Padding" Value="16"/>
+        </Style>
+
+        <!-- SECTION HEADERS -->
+        <Style x:Key="SectionHeader" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource DarkerBG}"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="Margin" Value="0,0,0,16"/>
+        </Style>
+
+        <!-- TEXT STYLES -->
+        <Style x:Key="PageTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="Margin" Value="0,0,0,24"/>
+        </Style>
+
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="Margin" Value="0,0,16,8"/>
+        </Style>
+
+        <Style x:Key="LabelText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+        </Style>
+
+        <Style x:Key="BodyText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBright}"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style x:Key="SmallText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="{StaticResource TextDim}"/>
+        </Style>
+
+        <Style x:Key="SuccessText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SuccessColor}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style x:Key="ErrorText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource DangerColor}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style x:Key="WarningText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource WarningColor}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+    </Window.Resources>
+
+    <!-- DEMO CONTENT -->
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="32" Width="600">
+
+            <TextBlock Text="Style Demo" Style="{StaticResource PageTitle}"/>
+
+            <!-- BUTTONS -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ BUTTONS" Style="{StaticResource SectionTitle}"/>
+            </Border>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
+                <Button Content="CLICK ME" Style="{StaticResource PrimaryButton}" Margin="0,0,12,0"/>
+                <Button Content="SUCCESS" Style="{StaticResource SuccessButton}" Margin="0,0,12,0"/>
+                <Button Content="DANGER" Style="{StaticResource DangerButton}" Margin="0,0,12,0"/>
+                <Button Content="WARNING" Style="{StaticResource WarningButton}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
+                <Button Content="SMALL" Style="{StaticResource SmallButton}" Margin="0,0,12,0"/>
+                <Button Content="LARGE" Style="{StaticResource LargeButton}"/>
+            </StackPanel>
+
+            <Button Content="⚙" Style="{StaticResource IconButton}"/>
+
+            <!-- INPUTS -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ INPUTS" Style="{StaticResource SectionTitle}"/>
+            </Border>
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="TextBox:" Style="{StaticResource LabelText}" Margin="0,0,0,4"/>
+                <TextBox Style="{StaticResource StandardTextBox}" Text="Input here" Margin="0,0,0,12"/>
+                <TextBox Style="{StaticResource MultilineTextBox}" Text="Multi-line input..."/>
+                <TextBox Style="{StaticResource SearchTextBox}" Text="🔍 Search..."/>
+                <PasswordBox Style="{StaticResource StandardPasswordBox}" Margin="0,12,0,0"/>
+            </StackPanel>
+
+            <!-- COMBOBOX -->
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="ComboBox:" Style="{StaticResource LabelText}" Margin="0,0,0,4"/>
+                <ComboBox Style="{StaticResource StandardComboBox}">
+                    <ComboBoxItem>Option 1</ComboBoxItem>
+                    <ComboBoxItem>Option 2</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- CHECKBOX & RADIO -->
+            <StackPanel Margin="0,0,0,24">
+                <CheckBox Content="Enable feature" Style="{StaticResource StandardCheckBox}"/>
+                <RadioButton Content="Option A" Style="{StaticResource StandardRadioButton}" Margin="0,8,0,0"/>
+            </StackPanel>
+
+            <!-- PANELS -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ PANELS" Style="{StaticResource SectionTitle}"/>
+            </Border>
+            <StackPanel Margin="0,0,0,24">
+                <Border Style="{StaticResource CardPanel}">
+                    <TextBlock Text="Light card content" Style="{StaticResource BodyText}"/>
+                </Border>
+                <Border Style="{StaticResource DarkCardPanel}" Margin="0,8,0,0">
+                    <TextBlock Text="Dark card content" Style="{StaticResource BodyText}"/>
+                </Border>
+                <Border Style="{StaticResource StatusCard}" Margin="0,8,0,0">
+                    <TextBlock Text="ONLINE" Style="{StaticResource SuccessText}"/>
+                </Border>
+            </StackPanel>
+
+            <!-- LISTS -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ LISTS" Style="{StaticResource SectionTitle}"/>
+            </Border>
+            <ListBox Margin="0,0,0,24">
+                <ListBoxItem Style="{StaticResource ServerListItem}">
+                    <TextBlock Text="Server Name 1"/>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ServerListItem}">
+                    <TextBlock Text="Server Name 2"/>
+                </ListBoxItem>
+            </ListBox>
+
+            <!-- TEXT STYLES -->
+            <Border Style="{StaticResource SectionHeader}">
+                <TextBlock Text="▶ TEXT STYLES" Style="{StaticResource SectionTitle}"/>
+            </Border>
+            <StackPanel>
+                <TextBlock Text="Page Title" Style="{StaticResource PageTitle}"/>
+                <TextBlock Text="Section Title" Style="{StaticResource SectionTitle}"/>
+                <TextBlock Text="Label Text:" Style="{StaticResource LabelText}"/>
+                <TextBlock Text="Body text that wraps automatically." Style="{StaticResource BodyText}"/>
+                <TextBlock Text="Success!" Style="{StaticResource SuccessText}"/>
+                <TextBlock Text="Error!" Style="{StaticResource ErrorText}"/>
+                <TextBlock Text="Warning!" Style="{StaticResource WarningText}"/>
+                <TextBlock Text="Small text" Style="{StaticResource SmallText}"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

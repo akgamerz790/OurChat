@@ -1,0 +1,121 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Merge Colors -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Base Button Template -->
+    <ControlTemplate x:Key="BrutalistButtonTemplate" TargetType="Button">
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+            <ContentPresenter HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            Margin="{TemplateBinding Padding}"/>
+        </Border>
+    </ControlTemplate>
+
+    <!-- Base Button Style -->
+    <Style x:Key="BaseButton" TargetType="Button">
+        <Setter Property="FontFamily" Value="Courier New"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="20,12"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Black}"/>
+        <Setter Property="BorderThickness" Value="4"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template" Value="{StaticResource BrutalistButtonTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Primary Blue Button -->
+    <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="{StaticResource AccentBlue}"/>
+        <Setter Property="Foreground" Value="{StaticResource Black}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#4752C4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Success Green Button -->
+    <Style x:Key="SuccessButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="{StaticResource AccentGreen}"/>
+        <Setter Property="Foreground" Value="{StaticResource Black}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#3BA572"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Danger Red Button -->
+    <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="{StaticResource AccentRed}"/>
+        <Setter Property="Foreground" Value="{StaticResource Black}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#D63E3E"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Warning Yellow Button -->
+    <Style x:Key="WarningButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="{StaticResource AccentYellow}"/>
+        <Setter Property="Foreground" Value="{StaticResource Black}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FDD835"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Secondary Dark Button -->
+    <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="{StaticResource DarkBg}"/>
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryBg}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Small Button -->
+    <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="BorderThickness" Value="3"/>
+    </Style>
+
+    <!-- Large Button -->
+    <Style x:Key="LargeButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="30,18"/>
+        <Setter Property="BorderThickness" Value="5"/>
+    </Style>
+
+    <!-- Icon Button (Square) -->
+    <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Width" Value="45"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryBg}"/>
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource AccentBlue}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

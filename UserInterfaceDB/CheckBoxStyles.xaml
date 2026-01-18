@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Standard CheckBox -->
+    <Style x:Key="StandardCheckBox" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Setter Property="FontFamily" Value="Courier New"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="0,5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Toggle Switch Style CheckBox -->
+    <Style x:Key="ToggleCheckBox" TargetType="CheckBox" BasedOn="{StaticResource StandardCheckBox}">
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <!-- Standard RadioButton -->
+    <Style x:Key="StandardRadioButton" TargetType="RadioButton">
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Setter Property="FontFamily" Value="Courier New"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="0,5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+</ResourceDictionary>
